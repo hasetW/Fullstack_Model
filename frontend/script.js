@@ -10,13 +10,14 @@ form.addEventListener("submit", async (e) => {
     const model_type = document.querySelector('input[name="model_choice"]:checked')?.value || "logistic";
 
     try {
-        const response = await fetch(`http://127.0.0.1:8000/predict?model_type=${model_type}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ features })
-        });
+        const response = await fetch(`https://fullstack-model-api.onrender.com/predict?model_type=${model_type}`,{
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+        features: featuresArray
+        })});
 
         const data = await response.json();
 
