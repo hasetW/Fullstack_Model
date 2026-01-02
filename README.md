@@ -13,3 +13,9 @@ Two machine learning models are implemented:
    Decision Tree Classifier
 Models were trained using the Breast Cancer Wisconsin Dataset(kaggle)   
 Models were saved using joblib
+
+Deployed
+
+Frontend deployed on vercel-https://fullstack-model-frontend.vercel.app/
+
+Backend deployed on Render-https://fullstack-model-2szd.onrender.com/
