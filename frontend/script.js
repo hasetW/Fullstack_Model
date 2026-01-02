@@ -4,20 +4,29 @@ const resultDiv = document.getElementById("result");
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const features = Array.from(form.querySelectorAll("input[type='number']")).map(input => parseFloat(input.value));
+    // Collect features
+    const features = Array.from(
+        form.querySelectorAll("input[type='number']")
+    ).map(input => parseFloat(input.value));
 
     // Model choice
-    const model_type = document.querySelector('input[name="model_choice"]:checked')?.value || "logistic";
+    const model_type =
+        document.querySelector('input[name="model_choice"]:checked')?.value ||
+        "logistic";
 
     try {
-        const response = await fetch(`https://fullstack-model-api.onrender.com/predict?model_type=${model_type}`,{
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-        features: featuresArray
-        })});
+        const response = await fetch(
+            `https://fullstack-model-2szd.onrender.com/predict?model_type=${model_type}`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    features: features
+                })
+            }
+        );
 
         const data = await response.json();
 
